@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Swift-2.0</h1>
-      <h2 class="project-tagline">How to migrate to Swift-2.0</h2>
+      <h2 class="project-tagline">Migrate to Swift-2.0</h2>
       <a href="https://github.com/AnilVarghese/swift-2.0" class="btn">View on GitHub</a>
       <a href="https://github.com/AnilVarghese/swift-2.0/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/AnilVarghese/swift-2.0/tarball/master" class="btn">Download .tar.gz</a>
@@ -20,29 +20,63 @@
 
     <section class="main-content">
       <h3>
-<a id="use-xcode-7-migration-tool" class="anchor" href="#use-xcode-7-migration-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use Xcode 7 migration tool.</h3>
+<a id="use-xcode-7-migration-tool" class="anchor" href="#use-xcode-7-migration-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use Xcode 7 migration tool</h3>
 
-<p>When you open an existing project in Xcode 7, it will ask you <strong>convert to Latest Swift Syntax?</strong> or you can manually concert using the migration tool <code>Edit menu-&gt;Convert-&gt; To Latest Swift Syntax</code>.</p>
-
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+<p>When you open an existing project in Xcode 7, it will ask you <strong>convert to Latest Swift Syntax?</strong> or you can manually convert using the migration tool <em><code>Edit menu-&gt;Convert-&gt; To Latest Swift Syntax</code></em>.</p>
 
 <h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<a id="removed--in-function-parameter-so-we-have-to-use-double-name" class="anchor" href="#removed--in-function-parameter-so-we-have-to-use-double-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removed <code>#</code> in function parameter so we have to use double name.</h3>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<a id="unnamed-parameter-should-be-marked-by-_" class="anchor" href="#unnamed-parameter-should-be-marked-by-_" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unnamed parameter should be marked by <code>_</code>
+</h3>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="option-set-type" class="anchor" href="#option-set-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Option set type</h3>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<p>Calendar components, UIAutoresizing mask<br>
+   eg: <a href="http://www.rockhoppertech.com/blog/swift-2-optionsettype/">http://www.rockhoppertech.com/blog/swift-2-optionsettype/</a></p>
+
+<h3>
+<a id="new-is-not-available" class="anchor" href="#new-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>new() is not available</h3>
+
+<h3>
+<a id="println-is-replaced-with-print" class="anchor" href="#println-is-replaced-with-print" aria-hidden="true"><span class="octicon octicon-link"></span></a>println() is replaced with print()</h3>
+
+<h3>
+<a id="use-let-the-instead-of-let-if-the-value-is-never-mutating" class="anchor" href="#use-let-the-instead-of-let-if-the-value-is-never-mutating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use let the instead of let if the value is never mutating</h3>
+
+<h3>
+<a id="string-is-not-collection-type-stringcharacterscount" class="anchor" href="#string-is-not-collection-type-stringcharacterscount" aria-hidden="true"><span class="octicon octicon-link"></span></a>String is not collection type. string.characters.count</h3>
+
+<pre><code> https://developer.apple.com/swift/blog/?id=30
+</code></pre>
+
+<h3>
+<a id="global-function-contains-is-not-available-use-arraycontains" class="anchor" href="#global-function-contains-is-not-available-use-arraycontains" aria-hidden="true"><span class="octicon octicon-link"></span></a>global function contains() is not available use array.contains</h3>
+
+<h3>
+<a id="cannot-use-like-dictkeysarray-use-arraydictkeys" class="anchor" href="#cannot-use-like-dictkeysarray-use-arraydictkeys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cannot use like dict.keys.array,, use Array(dict.keys)</h3>
+
+<h3>
+<a id="settranslatesautoresizingmaskintoconstraints-not-available" class="anchor" href="#settranslatesautoresizingmaskintoconstraints-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>setTranslatesAutoresizingMaskIntoConstraints not available</h3>
+
+<h3>
+<a id="arraysorted-not-available-use-arraysort" class="anchor" href="#arraysorted-not-available-use-arraysort" aria-hidden="true"><span class="octicon octicon-link"></span></a>array.sorted not available use array.sort</h3>
+
+<h3>
+<a id="find-is-not-available-use-indexof" class="anchor" href="#find-is-not-available-use-indexof" aria-hidden="true"><span class="octicon octicon-link"></span></a>find is not available use indexOf</h3>
+
+<h3>
+<a id="advance-is-not-available-use-advanceby" class="anchor" href="#advance-is-not-available-use-advanceby" aria-hidden="true"><span class="octicon octicon-link"></span></a>advance is not available use advanceBy</h3>
+
+<h3>
+<a id="join-is-unavailable-use-joinwithseparator" class="anchor" href="#join-is-unavailable-use-joinwithseparator" aria-hidden="true"><span class="octicon octicon-link"></span></a>join is unavailable use joinWithSeparator</h3>
+
+<p>JsonObjectWithData
+<a href="http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array">http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array</a>
+<a href="http://swiftdoc.org/swift-2/type/LazyMapCollection/">http://swiftdoc.org/swift-2/type/LazyMapCollection/</a>
+major changes here <a href="https://www.hackingwithswift.com/swift2">https://www.hackingwithswift.com/swift2</a></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/AnilVarghese/swift-2.0">Swift-2.0</a> is maintained by <a href="https://github.com/AnilVarghese">AnilVarghese</a>.</span>
