@@ -25,7 +25,43 @@
 <p>When you open an existing project in Xcode 7, it will ask you <strong>convert to Latest Swift Syntax?</strong> or you can manually convert using the migration tool <em><code>Edit menu-&gt;Convert-&gt; To Latest Swift Syntax</code></em>.</p>
 
 <h3>
-<a id="2-removed--from-function-parameter-name" class="anchor" href="#2-removed--from-function-parameter-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Removed # from function parameter name.</h3>
+<a id="2-error-handeling" class="anchor" href="#2-error-handeling" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Error handeling</h3>
+
+<p>API's are updated to take advantage of new error handeling mechanism. Any api which throw error should be handled using <code>try catch</code>. or you can us <code>try?</code> or <code>try!</code></p>
+
+<pre><code>//swift 1.2
+var error: NSError?
+let result  = NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers, error: &amp;error) as! Dictionary&lt;String,AnyObject&gt;
+
+//swift 2.0
+ var result:Dictionary&lt;String,AnyObject&gt;
+do{
+result = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers) as!Dictionary&lt;String,AnyObject&gt;
+
+}catch{
+  print(error)
+}
+</code></pre>
+
+<h3>
+<a id="3-availabilty" class="anchor" href="#3-availabilty" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Availabilty</h3>
+
+<p>Before we have used <code>objc_getClass("UIAlertController")</code> to check the availabilty. now its more easier by using <code>#available</code>. You can even mark your functions specificaly using <code>@available</code></p>
+
+<pre><code>if #available(iOS 8.0, *) {
+                let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+
+            } else {
+                let alert = UIAlertView(title: "Accounts", message: "Please login to a Facebook account to share.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+            }
+</code></pre>
+
+<h3>
+<a id="4-removed--from-function-parameter-name" class="anchor" href="#4-removed--from-function-parameter-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Removed # from function parameter name.</h3>
 
 <p><code>#</code> has been removed from swift, you should double up the parameter name to have the same argument label </p>
 
@@ -41,7 +77,7 @@ startGameWith(player:"anil",level: 5)
 </code></pre>
 
 <h3>
-<a id="unnamed-parameter-should-be-marked-by-_" class="anchor" href="#unnamed-parameter-should-be-marked-by-_" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unnamed parameter should be marked by <code>_</code>
+<a id="5-unnamed-parameter-should-be-marked-by-_" class="anchor" href="#5-unnamed-parameter-should-be-marked-by-_" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Unnamed parameter should be marked by <code>_</code>
 </h3>
 
 <pre><code>//swift 1.2 
@@ -56,7 +92,7 @@ add(5, 6)
 </code></pre>
 
 <h3>
-<a id="option-set-type" class="anchor" href="#option-set-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Option set type</h3>
+<a id="6-optionsettype" class="anchor" href="#6-optionsettype" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. OptionSetType</h3>
 
 <p><code>OptionSetType</code> is a new protocol available in Swwift2.0 . Things like <code>UIViewAutoresizing</code> and <code>NSCalendarUnit</code> are of type <code>OptionSetType</code></p>
 
@@ -80,43 +116,113 @@ UIView.animateWithDuration(1.0, delay: 0, options: [], animations: { () -&gt; Vo
 </code></pre>
 
 <h3>
-<a id="new-is-not-available" class="anchor" href="#new-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>new() is not available</h3>
+<a id="7-new-is-not-available" class="anchor" href="#7-new-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. new() is not available</h3>
 
-<h3>
-<a id="println-is-replaced-with-print" class="anchor" href="#println-is-replaced-with-print" aria-hidden="true"><span class="octicon octicon-link"></span></a>println() is replaced with print()</h3>
+<p>You have to use the object constructer instead.</p>
 
-<h3>
-<a id="use-let-the-instead-of-let-if-the-value-is-never-mutating" class="anchor" href="#use-let-the-instead-of-let-if-the-value-is-never-mutating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use let the instead of let if the value is never mutating</h3>
+<pre><code>CABasicAnimation.new()
 
-<h3>
-<a id="string-is-not-collection-type-stringcharacterscount" class="anchor" href="#string-is-not-collection-type-stringcharacterscount" aria-hidden="true"><span class="octicon octicon-link"></span></a>String is not collection type. string.characters.count</h3>
-
-<pre><code> https://developer.apple.com/swift/blog/?id=30
+//swift2.0
+CABasicAnimation()
 </code></pre>
 
 <h3>
-<a id="global-function-contains-is-not-available-use-arraycontains" class="anchor" href="#global-function-contains-is-not-available-use-arraycontains" aria-hidden="true"><span class="octicon octicon-link"></span></a>global function contains() is not available use array.contains</h3>
+<a id="8-println-is-removed" class="anchor" href="#8-println-is-removed" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. println() is removed</h3>
+
+<p>Now there is only <code>print()</code>, additionaly you can have <code>separator</code> and <code>terminator</code>.</p>
+
+<pre><code>print("Hello")
+
+// Writes the textual representations of `items`, separated by `separator` and terminated by `terminator`
+
+ print(items, separator: ",", terminator: "")
+</code></pre>
 
 <h3>
-<a id="cannot-use-like-dictkeysarray-use-arraydictkeys" class="anchor" href="#cannot-use-like-dictkeysarray-use-arraydictkeys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cannot use like dict.keys.array,, use Array(dict.keys)</h3>
+<a id="9-mutability-warning" class="anchor" href="#9-mutability-warning" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. Mutability warning</h3>
+
+<p>Use let and var appropriately. If the value of your variable is never changing, dont use <code>var</code>for that, should be <code>let</code>.</p>
+
+<pre><code>var x = 1
+var y = 2
+
+let z = x+y
+</code></pre>
+
+<p>Above code will give warning, x&amp;y are immutable variables, so it should be marked with <code>let</code></p>
 
 <h3>
-<a id="settranslatesautoresizingmaskintoconstraints-not-available" class="anchor" href="#settranslatesautoresizingmaskintoconstraints-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>setTranslatesAutoresizingMaskIntoConstraints not available</h3>
+<a id="10-string-is-not-collection-type" class="anchor" href="#10-string-is-not-collection-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>10. String is not collection type</h3>
+
+<p>String is not a collection type anymore.   </p>
+
+<pre><code>count(string) //is wrong
+string.characters.count // right  
+</code></pre>
+
+<p>Ref: <a href="https://developer.apple.com/swift/blog/?id=30">https://developer.apple.com/swift/blog/?id=30</a></p>
 
 <h3>
-<a id="arraysorted-not-available-use-arraysort" class="anchor" href="#arraysorted-not-available-use-arraysort" aria-hidden="true"><span class="octicon octicon-link"></span></a>array.sorted not available use array.sort</h3>
+<a id="11-contains-is-not-available" class="anchor" href="#11-contains-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>11. contains() is not available</h3>
+
+<p>Global function contains() is not available use it like <code>array.contains</code></p>
 
 <h3>
-<a id="find-is-not-available-use-indexof" class="anchor" href="#find-is-not-available-use-indexof" aria-hidden="true"><span class="octicon octicon-link"></span></a>find is not available use indexOf</h3>
+<a id="12-to-get-dictionary-keys" class="anchor" href="#12-to-get-dictionary-keys" aria-hidden="true"><span class="octicon octicon-link"></span></a>12. To get dictionary keys</h3>
+
+<p>Cannot use like <code>dict.keys.array</code> use <code>Array(dict.keys)</code></p>
 
 <h3>
-<a id="advance-is-not-available-use-advanceby" class="anchor" href="#advance-is-not-available-use-advanceby" aria-hidden="true"><span class="octicon octicon-link"></span></a>advance is not available use advanceBy</h3>
+<a id="13--settranslatesautoresizingmaskintoconstraints-not-available" class="anchor" href="#13--settranslatesautoresizingmaskintoconstraints-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>13.  setTranslatesAutoresizingMaskIntoConstraints() not available</h3>
+
+<pre><code>//swift 2.0
+view.translatesAutoresizingMaskIntoConstraints = false
+</code></pre>
+
+<h3>
+<a id="14-changed-sorting-method-name" class="anchor" href="#14-changed-sorting-method-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>14. Changed sorting method name</h3>
+
+<p>method <code>sorted</code> is changed to <code>sort</code>.  </p>
+
+<pre><code>array.sort{
+}
+</code></pre>
+
+<h3>
+<a id="15-find-is-not-available" class="anchor" href="#15-find-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>15. find() is not available</h3>
+
+<p>Global function <code>find()</code> is not available use <code>indexOf()</code></p>
+
+<pre><code>//swift 1.2
+let index = find(array, object)
+
+//swift 2.0
+let index = array.indexOf(object)
+</code></pre>
+
+<h3>
+<a id="16-advance-is-not-available" class="anchor" href="#16-advance-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>16. advance() is not available</h3>
+
+<p>Use advanceBy() instead.  </p>
+
+<pre><code>//swift 1.2
+status.substringToIndex(advance(status.startIndex, 100))
+
+//swift 2.0
+status.substringToIndex(status.startIndex.advancedBy(100))
+</code></pre>
 
 <h3>
 <a id="join-is-unavailable-use-joinwithseparator" class="anchor" href="#join-is-unavailable-use-joinwithseparator" aria-hidden="true"><span class="octicon octicon-link"></span></a>join is unavailable use joinWithSeparator</h3>
 
-<p>JsonObjectWithData
-<a href="http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array">http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array</a>
+<pre><code>//swift 1.2
+join(",", array)
+
+//swift 2.0   
+array.joinWithSeparator(",")
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array">http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array</a>
 <a href="http://swiftdoc.org/swift-2/type/LazyMapCollection/">http://swiftdoc.org/swift-2/type/LazyMapCollection/</a>
 major changes here <a href="https://www.hackingwithswift.com/swift">https://www.hackingwithswift.com/swift</a></p>
 
