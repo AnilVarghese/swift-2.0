@@ -27,17 +27,18 @@
 <h3>
 <a id="2-removed--from-function-parameter-name" class="anchor" href="#2-removed--from-function-parameter-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Removed # from function parameter name.</h3>
 
-<p><code>#</code> has been removed from swift, you should double up the paramter name to have the same argument label </p>
+<p><code>#</code> has been removed from swift, you should double up the parameter name to have the same argument label </p>
 
-<p><code>//swift 1.2</code>
-  <code>func startGameWith(#player:String, #level:Int){</code>
-<code>}</code>
-<code>startGameWith(player:"anil", level: 5)</code></p>
+<pre><code>//swift 1.2
+func startGameWith(#player:String, #level:Int){
+}
+startGameWith(player:"anil", level: 5)
 
-<p><code>//swift 2.0</code>
-<code>func startGameWith(player player:String, level:Int){</code>
-<code>}</code>
-<code>startGameWith(player:"anil",level: 5)</code></p>
+//swift 2.0
+func startGameWith(player player:String, level:Int){
+}
+startGameWith(player:"anil",level: 5)
+</code></pre>
 
 <h3>
 <a id="unnamed-parameter-should-be-marked-by-_" class="anchor" href="#unnamed-parameter-should-be-marked-by-_" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unnamed parameter should be marked by <code>_</code>
