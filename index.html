@@ -44,11 +44,40 @@ startGameWith(player:"anil",level: 5)
 <a id="unnamed-parameter-should-be-marked-by-_" class="anchor" href="#unnamed-parameter-should-be-marked-by-_" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unnamed parameter should be marked by <code>_</code>
 </h3>
 
+<pre><code>//swift 1.2 
+func add(Int, Int){    
+}
+add(5, 6) 
+
+//swift 2.0
+func add(_: Int,_: Int){  
+}
+add(5, 6)
+</code></pre>
+
 <h3>
 <a id="option-set-type" class="anchor" href="#option-set-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Option set type</h3>
 
-<p>Calendar components, UIAutoresizing mask<br>
-   eg: <a href="http://www.rockhoppertech.com/blog/swift-2-optionsettype/">http://www.rockhoppertech.com/blog/swift-2-optionsettype/</a></p>
+<p><code>OptionSetType</code> is a new protocol available in Swwift2.0 . Things like <code>UIViewAutoresizing</code> and <code>NSCalendarUnit</code> are of type <code>OptionSetType</code></p>
+
+<pre><code>//swift 1.2 
+let autoresizingMask = .FlexibleWidth | .FlexibleHeight 
+
+//swift 2.0
+let autoresizingMask = [.FlexibleWidth , .FlexibleHeight]
+</code></pre>
+
+<p>Many API's also has changed to take advantage of this protocol, especialy option/settings flags.  </p>
+
+<pre><code>UIView.animateWithDuration(1.0, delay: 0, options: nil, animations: { () -&gt; Void in
+
+        }, completion: nil)
+
+//swift2.0  
+UIView.animateWithDuration(1.0, delay: 0, options: [], animations: { () -&gt; Void in
+
+        }, completion: nil)
+</code></pre>
 
 <h3>
 <a id="new-is-not-available" class="anchor" href="#new-is-not-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>new() is not available</h3>
