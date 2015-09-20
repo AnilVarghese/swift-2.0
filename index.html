@@ -20,12 +20,24 @@
 
     <section class="main-content">
       <h3>
-<a id="use-xcode-7-migration-tool" class="anchor" href="#use-xcode-7-migration-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use Xcode 7 migration tool</h3>
+<a id="1-use-xcode-7-migration-tool" class="anchor" href="#1-use-xcode-7-migration-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Use Xcode 7 migration tool</h3>
 
 <p>When you open an existing project in Xcode 7, it will ask you <strong>convert to Latest Swift Syntax?</strong> or you can manually convert using the migration tool <em><code>Edit menu-&gt;Convert-&gt; To Latest Swift Syntax</code></em>.</p>
 
 <h3>
-<a id="removed--in-function-parameter-so-we-have-to-use-double-name" class="anchor" href="#removed--in-function-parameter-so-we-have-to-use-double-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removed <code>#</code> in function parameter so we have to use double name.</h3>
+<a id="2-removed--from-function-parameter-name" class="anchor" href="#2-removed--from-function-parameter-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Removed # from function parameter name.</h3>
+
+<p><code>#</code> has been removed from swift, you should double up the paramter name to have the same argument label </p>
+
+<p><code>//swift 1.2</code>
+  <code>func startGameWith(#player:String, #level:Int){</code>
+<code>}</code>
+<code>startGameWith(player:"anil", level: 5)</code></p>
+
+<p><code>//swift 2.0</code>
+<code>func startGameWith(player player:String, level:Int){</code>
+<code>}</code>
+<code>startGameWith(player:"anil",level: 5)</code></p>
 
 <h3>
 <a id="unnamed-parameter-should-be-marked-by-_" class="anchor" href="#unnamed-parameter-should-be-marked-by-_" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unnamed parameter should be marked by <code>_</code>
@@ -76,7 +88,7 @@
 <p>JsonObjectWithData
 <a href="http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array">http://stackoverflow.com/questions/32408722/array-is-unavailable-please-construct-an-array-from-your-lazy-sequence-array</a>
 <a href="http://swiftdoc.org/swift-2/type/LazyMapCollection/">http://swiftdoc.org/swift-2/type/LazyMapCollection/</a>
-major changes here <a href="https://www.hackingwithswift.com/swift2">https://www.hackingwithswift.com/swift2</a></p>
+major changes here <a href="https://www.hackingwithswift.com/swift">https://www.hackingwithswift.com/swift</a></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/AnilVarghese/swift-2.0">Swift-2.0</a> is maintained by <a href="https://github.com/AnilVarghese">AnilVarghese</a>.</span>
